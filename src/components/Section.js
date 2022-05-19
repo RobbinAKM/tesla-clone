@@ -1,18 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 import "../App.css";
+import { Zoom } from "react-awesome-reveal";
 
 function Section({ id, title, des, img, leftTx, rightTx }) {
   return (
     <Wrap bgImg={img}>
-      <ItemText>
-        <h1>{title}</h1>
-        <p>{des}</p>
-      </ItemText>
+      <Zoom>
+        <ItemText>
+          <h1>{title}</h1>
+          <p>{des}</p>
+        </ItemText>
+      </Zoom>
       <Buttons>
         <ButtonGroup>
-          <LeftButton>{leftTx}</LeftButton>
-          {rightTx ? <RightButton>{rightTx}</RightButton> : null}
+          <Zoom>
+            <LeftButton>{leftTx}</LeftButton>
+          </Zoom>
+          {rightTx ? (
+            <Zoom>
+              <RightButton>{rightTx}</RightButton>
+            </Zoom>
+          ) : null}
         </ButtonGroup>
         <DownArrow src="/images/down-arrow.svg" className="downArrow" />
       </Buttons>
